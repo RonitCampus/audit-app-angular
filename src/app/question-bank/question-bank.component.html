@@ -1,48 +1,42 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
-      <form class="form-horizontal">
+      <form class="form-horizontal well well-sm" (ngSubmit)="formSubmit()" [formGroup]="questionForm">
+
         <fieldset>
           <legend>Add Question</legend>
           <div class="form-group">
             <label for="textArea" class="col-lg-2 control-label">Description</label>
             <div class="col-lg-10">
-              <textarea class="form-control" rows="3" id="textArea"></textarea>
-              <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+              <textarea class="form-control" rows="3" formControlName="questionDescription" maxlength="500" placeholder="Add description of the question"></textarea>
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-2 control-label">Status</label>
             <div class="col-lg-10">
               <div class="checkbox">
-                <label><input type="checkbox"> Active </label>
+                <label><input formControlName="activeStatus" type="checkbox"> Active </label>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="select" class="col-lg-2 control-label">Category</label>
             <div class="col-lg-10">
-              <select class="form-control" id="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-              <br>
-              <select multiple="" class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
+              <select class="form-control" formControlName="category">
+                <option *ngFor="let category of categories" value="category.cateoryId">{{category.questionDescription}}</option>
+              </select>
             </div>
           </div>
           <div class="form-group">
-            <div class="col-lg-10 col-lg-offset-2">
-              <button type="reset" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
+            <label for="inputEmail" class="col-lg-2 control-label">Weightage</label>
+            <div class="col-lg-10">
+              <input type="number" min="0" max="10" class="form-control" formControlName="weightage" placeholder="Weightage of the question">
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-lg-3 col-lg-offset-9">
+              <!--<button type="reset" class="btn btn-default">Cancel</button>-->
+              <button type="submit" class="btn btn-block btn-primary">Add</button>
             </div>
           </div>
         </fieldset>
