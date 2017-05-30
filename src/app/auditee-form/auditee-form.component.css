@@ -1,0 +1,28 @@
+.question {
+  background-color: #dcdcdc !important;
+}
+
+.compliance-select {
+  padding: 2px;
+  height: 26px;
+  width: 122px;
+  font-size: 13px;
+}
+
+.number {
+  width: 40px;
+}
+
+.compliance {
+  width: 180px !important;
+}
+
+.remark {
+  padding: 2px;
+  height: 26px;
+  font-size: 13px;
+}
+
+.remark-width {
+  width: 300px;
+}

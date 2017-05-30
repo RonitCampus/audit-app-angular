@@ -23,7 +23,7 @@
             <label for="select" class="col-lg-2 control-label">Category</label>
             <div class="col-lg-10">
               <select class="form-control" formControlName="category">
-                <option *ngFor="let category of categories" value="category.cateoryId">{{category.questionDescription}}</option>
+                <option *ngFor="let category of categories" [value]="category.cateoryId">{{category.questionDescription}}</option>
               </select>
             </div>
           </div>

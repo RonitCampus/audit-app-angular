@@ -9,13 +9,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { QuestionBankComponent } from './question-bank/question-bank.component';
+import { AuditeeFormComponent } from './auditee-form/auditee-form.component';
+import { AuditTimetableComponent } from './audit-timetable/audit-timetable.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    QuestionBankComponent
+    QuestionBankComponent,
+    AuditeeFormComponent,
+    AuditTimetableComponent
   ],
   imports: [
     BrowserModule,
@@ -25,8 +29,9 @@ import { QuestionBankComponent } from './question-bank/question-bank.component';
     BrowserAnimationsModule,
     SnotifyModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: '/question-bank', pathMatch: 'full' },
-      { path: 'question-bank', component: QuestionBankComponent }
+      { path: '', redirectTo: '/auditee-form', pathMatch: 'full' },
+      { path: 'question-bank', component: QuestionBankComponent },
+      { path: 'auditee-form', component: AuditeeFormComponent }
     ])
   ],
   providers: [],

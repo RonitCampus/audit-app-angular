@@ -43,10 +43,21 @@ export class QuestionBankComponent implements OnInit {
 
 
   public formSubmit(): void {
-    console.log('processing');
-    console.log(this.questionForm.value);
-  }
+    const questionDescription: string = this.questionForm.value.questionDescription;
+    const activeStatus: boolean = this.questionForm.value.activeStatus;
+    const category: number = this.questionForm.value.category;
+    const weightage: number = this.questionForm.value.weightage;
 
+    if (questionDescription !== null && activeStatus !== null && category !== null && weightage !== null) {
+      console.log('all correct');
+    } else {
+      alert('All fields are necessary');
+    }
+
+
+
+
+  }
 
   public test() {
     const dataobj = {
