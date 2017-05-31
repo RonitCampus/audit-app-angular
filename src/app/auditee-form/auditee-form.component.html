@@ -20,7 +20,8 @@
             <thead>
               <tr>
                 <th class="number">#</th>
-                <th class="">Question</th>
+                <th>Question</th>
+                <th class="weightage">Weightage</th>
                 <th class="compliance">Compliance Status</th>
                 <th class="text-center">Remarks</th>
               </tr>
@@ -29,13 +30,19 @@
               <tr *ngFor="let question of Questions; let i = index; ">
                 <td>{{i+1}}</td>
                 <td>{{question.question}}</td>
-                <td class="">
-                  <select class="form-control compliance-select">
-                    <option *ngFor="let compliance of complianceCodes" [value]="compliance.id" >{{compliance.status}}</option>
+                <td>{{question.weightage}}</td>
+                <td>
+                  <select class="form-control compliance-select" name="ComplianceStatus"
+                          [(ngModel)]="question.complianceStatus">
+                    <option *ngFor="let compliance of complianceCodes" [value]="compliance.id"
+                            [attr.selected]="compliance.id === question.complianceStatus ? true : null ">
+                      {{compliance.status}}
+                    </option>
                   </select></td>
                 <td class="remark-width">
                   <div class="form-group">
-                    <input class="form-control input-sm remark" type="text" id="inputSmall">
+                    <input [(ngModel)]="question.remark" name="remark" class="form-control input-sm remark" type="text"
+                           id="inputSmall">
                   </div>
                 </td>
               </tr>
@@ -45,8 +52,8 @@
 
           <div class="form-group">
             <div class="col-lg-10 col-lg-offset-2">
-              <button type="reset" class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button (click)="getScore()" class="btn btn-default">Score</button>
+              <button (click)="onSubmit()" class="btn btn-primary">Submit</button>
             </div>
           </div>
         </fieldset>
