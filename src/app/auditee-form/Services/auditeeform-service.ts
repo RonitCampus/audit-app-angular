@@ -1,11 +1,11 @@
-import {IProject} from "../model/IProject";
-import {IQuestion} from "../model/IQuestion";
-import {IComplianceCode} from "../model/IComplianceCode";
-import {Injectable} from "@angular/core";
-import {Headers, Http, RequestOptions} from "@angular/http";
-import {Observable} from "rxjs/Observable";
-import "rxjs/Rx";
-import "rxjs/Operator";
+import {IProject} from '../model/IProject';
+import {IQuestion} from '../model/IQuestion';
+import {IComplianceCode} from '../model/IComplianceCode';
+import {Injectable} from '@angular/core';
+import {Headers, Http, RequestOptions} from '@angular/http';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/Rx';
+import 'rxjs/Operator';
 
 @Injectable()
 export class AuditeeFormService {
