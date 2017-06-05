@@ -2,7 +2,6 @@ import { IProjectInfo } from './model/IProjectInfo';
 import { NcregisterService } from './service/ncregister-service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
-import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 
 @Component({
   selector: 'app-nc-register-form',
@@ -13,8 +12,6 @@ import { DatePickerOptions, DateModel } from 'ng2-datepicker';
 
 export class NcRegisterFormComponent implements OnInit {
 
-  date: DateModel;
-  options: DatePickerOptions = new DatePickerOptions();
   projectInfo: any;
 
   constructor(private _activatedRoute: ActivatedRoute, private _ncRegisterService: NcregisterService) {

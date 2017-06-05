@@ -6,16 +6,16 @@ import { Router, RouterModule } from '@angular/router';
 import { SnotifyModule, SnotifyService } from 'ng-snotify'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BlockUIModule } from 'ng-block-ui';
-import { DatePickerModule } from 'ng2-datepicker';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { QuestionBankComponent } from './question-bank/question-bank.component';
-import { AuditeeFormComponent } from './auditee-form/auditee-form.component';
-import { AuditTimetableComponent } from './audit-timetable/audit-timetable.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { NcRegisterFormComponent } from './nc-register-form/nc-register-form.component';
+import { QuestionBankComponent } from './_ADMIN_Views/question-bank/question-bank.component';
+import { AuditeeFormComponent } from './_ADMIN_Views/auditee-form/auditee-form.component';
+import { AuditTimetableComponent } from './_ADMIN_Views/audit-timetable/audit-timetable.component';
+import { ProjectsComponent } from './_ADMIN_Views/projects/projects.component';
+import { NcRegisterFormComponent } from './_ADMIN_Views/nc-register-form/nc-register-form.component';
 import { UserNcRegisterComponent } from './_USER_Views/user-nc-register/user-nc-register.component';
+import { LoginComponent } from './_Login_View/login/login.component';
 
 
 @NgModule({
@@ -27,7 +27,8 @@ import { UserNcRegisterComponent } from './_USER_Views/user-nc-register/user-nc-
     AuditTimetableComponent,
     ProjectsComponent,
     NcRegisterFormComponent,
-    UserNcRegisterComponent
+    UserNcRegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -37,14 +38,14 @@ import { UserNcRegisterComponent } from './_USER_Views/user-nc-register/user-nc-
     BrowserAnimationsModule,
     BlockUIModule,
     SnotifyModule,
-    DatePickerModule,
     RouterModule.forRoot([
-      { path: '', redirectTo: '/userNcRegister', pathMatch: 'full' },
+      { path: '', redirectTo: '/login', pathMatch: 'full' },
       { path: 'question-bank', component: QuestionBankComponent },
       { path: 'auditeeForm/:projId', component: AuditeeFormComponent },
       { path: 'projects', component: ProjectsComponent },
       { path: 'ncRegister/:projId', component: NcRegisterFormComponent },
-      { path: 'userNcRegister/:projectId', component: UserNcRegisterComponent }
+      { path: 'userNcRegister/:projectId', component: UserNcRegisterComponent },
+      {path: 'login' , component: LoginComponent}
     ])
   ],
   providers: [],
