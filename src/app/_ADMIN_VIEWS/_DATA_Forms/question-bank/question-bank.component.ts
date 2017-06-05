@@ -50,34 +50,33 @@ export class QuestionBankComponent implements OnInit {
 
     if (questionDescription !== null && activeStatus !== null && category !== null && weightage !== null) {
       console.log('all correct');
+
+      const dataobj = {
+        'questionDescription': questionDescription,
+        'activeStatus': activeStatus,
+        'category': category,
+        'weightage': weightage
+      };
+
+      this._questionBankService.addQuestion(dataobj)
+        .subscribe(
+        (response) => {
+          console.log(response);
+          if (response.status === 200) {
+            this.questionForm.reset();
+            this.questionAddedSuccessfully();
+          }
+        },
+        (err) => { this.showError(err); },
+      );
+
     } else {
       alert('All fields are necessary');
     }
 
-
-
-
   }
 
-  public test() {
-    const dataobj = {
-      'questionDescription': 'Rohan test question',
-      'activeStatus': true,
-      'category': 101,
-      'weightage': 5
-    };
 
-    this._questionBankService.addQuestion(dataobj)
-      .subscribe(
-      (response) => {
-        console.log(response);
-        if (response.status === 200) {
-          this.questionAddedSuccessfully();
-        }
-      },
-      (err) => { this.showError(err); },
-    );
-  }
 
 
   private questionAddedSuccessfully() {

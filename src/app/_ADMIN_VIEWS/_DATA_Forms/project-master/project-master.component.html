@@ -1,0 +1,107 @@
+<form class="form-horizontal well col-lg-6 col-lg-offset-3">
+  <fieldset>
+
+    <!-- Form Name -->
+    <legend>Project Master</legend>
+
+
+    <div class="form-group form-group-sm">
+      <label for="projname" class="control-label col-sm-3">Project name</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="projname" placeholder="Project name" required="">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="projmgr" class="control-label col-sm-3">Project Manager</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="projmgr" placeholder="Project Manager" required="">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="deliveryMgr" class="control-label col-sm-3">Delivery Manager</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="deliveryMgr" placeholder="Delivery Manager">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="relationshipMgr" class="control-label col-sm-3">Relationship Manager</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="relationshipMgr" placeholder="Relationship Manager">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="textinput" class="control-label col-sm-3">Client</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="textinput" placeholder="Client" required="">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="textinput" class="control-label col-sm-3">Portfolio</label>
+      <div class="col-sm-9">
+        <input type="text" class="form-control" id="textinput" placeholder="Portfolio">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="StartDt" class="control-label col-sm-3">Start Date</label>
+      <div class="col-sm-9">
+        <input type="date" class="form-control" id="StartDt" placeholder="" required="">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="endDt" class="control-label col-sm-3">End Date</label>
+      <div class="col-sm-9">
+        <input type="date" class="form-control" id="endDt" placeholder="">
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label class="control-label col-sm-3" for="selectlist">Project Type</label>
+      <div class="controls text-left col-sm-9">
+        <select class="form-control">
+          <option *ngFor="let projectType of projectTypeList">{{projectType.projectTypeDescription}}</option>
+    </select>
+
+      </div>
+    </div>
+
+    <div class="form-group form-group-sm">
+      <label for="associateCount" class="control-label col-sm-3">Associate Count</label>
+      <div class="col-sm-9">
+        <input type="number" class="form-control" id="associateCount" placeholder="Associate Count" required="">
+
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="radios" class="control-label col-sm-3">Active Status</label>
+      <div class=" col-sm-9 required">
+        <div class="checkbox">
+          <label><input type="checkbox"> Active </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for=""></label>
+      <div class="text-right col-sm-10">
+        <button type="button" id="" name="" class="btn btn-primary btn-sm" aria-label="">Add</button>
+      </div>
+    </div>
+
+  </fieldset>
+</form>
