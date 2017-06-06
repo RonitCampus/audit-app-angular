@@ -19,7 +19,7 @@ import { LoginComponent } from './_Login_View/login/login.component';
 // tslint:disable-next-line:max-line-length
 import { CreateDeleteQuestionCategoryComponent } from './_ADMIN_VIEWS/_DATA_Forms/create-delete-question-category/create-delete-question-category.component';
 import { ProjectMasterComponent } from './_ADMIN_VIEWS/_DATA_Forms/project-master/project-master.component';
-
+import { appRoutes } from "app/_Router_Config/RouteConfig";
 
 
 @NgModule({
@@ -44,18 +44,7 @@ import { ProjectMasterComponent } from './_ADMIN_VIEWS/_DATA_Forms/project-maste
     BrowserAnimationsModule,
     BlockUIModule,
     SnotifyModule,
-    RouterModule.forRoot([
-      { path: '', redirectTo: '/add-delete-question-category', pathMatch: 'full' },
-
-      { path: 'question-bank', component: QuestionBankComponent },
-      { path: 'auditeeForm/:projId', component: AuditeeFormComponent },
-      { path: 'projects', component: ProjectsComponent },
-      { path: 'ncRegister/:projId', component: NcRegisterFormComponent },
-      { path: 'userNcRegister/:projectId', component: UserNcRegisterComponent },
-      { path: 'login', component: LoginComponent },
-      {path: 'add-delete-question-category', component: CreateDeleteQuestionCategoryComponent},
-      {path : 'project-master', component: ProjectMasterComponent}
-    ])
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
