@@ -27,4 +27,8 @@ export class ProjectMasterService {
     return this._fetchData('http://localhost:8090/Admin_Services/Data_forms/ProjectMaster/ProjectTypes');
   }
 
+  public addnewProject(data: Object): Observable<Boolean> {
+    return this._postData('http://localhost:8090/Admin_Services/Data_forms/ProjectMaster/addNewProject', data);
+  }
+
 }

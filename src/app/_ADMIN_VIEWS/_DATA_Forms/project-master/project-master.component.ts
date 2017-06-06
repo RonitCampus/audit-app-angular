@@ -30,4 +30,21 @@ export class ProjectMasterComponent implements OnInit {
       );
   }
 
+  public onSubmit(projectMasterForm: any) {
+    // console.log(projectMasterForm.value);
+    // projectMasterForm.resetForm();
+    this._projectMasterService.addnewProject(projectMasterForm.value)
+      .subscribe(
+      (data) => {
+        if (Boolean(data) === true) {
+          projectMasterForm.resetForm();
+          alert('Projected Added Successfully');
+        }else {
+          alert('Server Error !');
+        }
+      },
+      (err) => { alert(err); }
+      );
+  }
+
 }

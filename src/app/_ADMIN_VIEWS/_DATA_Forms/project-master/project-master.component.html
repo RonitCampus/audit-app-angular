@@ -1,4 +1,4 @@
-<form class="form-horizontal well col-lg-6 col-lg-offset-3">
+<form class="form-horizontal well col-lg-6 col-lg-offset-3" #projectMasterForm="ngForm" (ngSubmit)="onSubmit(projectMasterForm)">
   <fieldset>
 
     <!-- Form Name -->
@@ -8,7 +8,7 @@
     <div class="form-group form-group-sm">
       <label for="projname" class="control-label col-sm-3">Project name</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="projname" placeholder="Project name" required="">
+        <input type="text" class="form-control" placeholder="Project name" required="true" name="projectName" ngModel>
 
       </div>
     </div>
@@ -16,7 +16,7 @@
     <div class="form-group form-group-sm">
       <label for="projmgr" class="control-label col-sm-3">Project Manager</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="projmgr" placeholder="Project Manager" required="">
+        <input type="text" class="form-control" placeholder="Project Manager" required="true" name="projectMgr" ngModel>
 
       </div>
     </div>
@@ -24,7 +24,7 @@
     <div class="form-group form-group-sm">
       <label for="deliveryMgr" class="control-label col-sm-3">Delivery Manager</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="deliveryMgr" placeholder="Delivery Manager">
+        <input type="text" class="form-control" placeholder="Delivery Manager" name="deliveryMgr" ngModel>
 
       </div>
     </div>
@@ -32,7 +32,7 @@
     <div class="form-group form-group-sm">
       <label for="relationshipMgr" class="control-label col-sm-3">Relationship Manager</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="relationshipMgr" placeholder="Relationship Manager">
+        <input type="text" class="form-control" placeholder="Relationship Manager" name="relationshipMgr" ngModel>
 
       </div>
     </div>
@@ -40,7 +40,7 @@
     <div class="form-group form-group-sm">
       <label for="textinput" class="control-label col-sm-3">Client</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="textinput" placeholder="Client" required="">
+        <input type="text" class="form-control" placeholder="Client" required="true" name="client" ngModel>
 
       </div>
     </div>
@@ -48,7 +48,7 @@
     <div class="form-group form-group-sm">
       <label for="textinput" class="control-label col-sm-3">Portfolio</label>
       <div class="col-sm-9">
-        <input type="text" class="form-control" id="textinput" placeholder="Portfolio">
+        <input type="text" class="form-control" placeholder="Portfolio" name="portfolio" ngModel>
 
       </div>
     </div>
@@ -56,7 +56,7 @@
     <div class="form-group form-group-sm">
       <label for="StartDt" class="control-label col-sm-3">Start Date</label>
       <div class="col-sm-9">
-        <input type="date" class="form-control" id="StartDt" placeholder="" required="">
+        <input type="date" class="form-control" placeholder="dd-mm-yyyy" required name="startDt" ngModel>
 
       </div>
     </div>
@@ -64,7 +64,7 @@
     <div class="form-group form-group-sm">
       <label for="endDt" class="control-label col-sm-3">End Date</label>
       <div class="col-sm-9">
-        <input type="date" class="form-control" id="endDt" placeholder="">
+        <input type="date" class="form-control" placeholder="dd-mm-yyyy" name="endDt" ngModel>
 
       </div>
     </div>
@@ -72,8 +72,8 @@
     <div class="form-group form-group-sm">
       <label class="control-label col-sm-3" for="selectlist">Project Type</label>
       <div class="controls text-left col-sm-9">
-        <select class="form-control">
-          <option *ngFor="let projectType of projectTypeList">{{projectType.projectTypeDescription}}</option>
+        <select class="form-control" required name="projectType" ngModel>
+          <option *ngFor="let projectType of projectTypeList" [value]="projectType.projectType">{{projectType.projectTypeDescription}}</option>
     </select>
 
       </div>
@@ -82,7 +82,7 @@
     <div class="form-group form-group-sm">
       <label for="associateCount" class="control-label col-sm-3">Associate Count</label>
       <div class="col-sm-9">
-        <input type="number" class="form-control" id="associateCount" placeholder="Associate Count" required="">
+        <input type="number" class="form-control" placeholder="Associate Count" required="false" name="associateCount" ngModel>
 
       </div>
     </div>
@@ -91,7 +91,7 @@
       <label for="radios" class="control-label col-sm-3">Active Status</label>
       <div class=" col-sm-9 required">
         <div class="checkbox">
-          <label><input type="checkbox"> Active </label>
+          <label><input type="checkbox" name="projectActiveStatus" ngModel> Active </label>
         </div>
       </div>
     </div>
@@ -99,7 +99,7 @@
     <div class="form-group">
       <label class="control-label col-sm-2" for=""></label>
       <div class="text-right col-sm-10">
-        <button type="button" id="" name="" class="btn btn-primary btn-sm" aria-label="">Add</button>
+        <button type="submit" id="" name="" class="btn btn-primary btn-sm" [disabled]="! projectMasterForm.form.valid">Add</button>
       </div>
     </div>
 

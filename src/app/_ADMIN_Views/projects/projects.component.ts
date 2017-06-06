@@ -31,12 +31,12 @@ export class ProjectsComponent implements OnInit {
   }
 
   onDoAuditClick(projectId: number): void {
-    this._route.navigate(['/auditeeForm', projectId]);
+    this._route.navigate(['Admin/auditeeForm', projectId]);
   }
 
   onNcRegisterClick(projectId: number): void {
     console.log('onNcRegister Click : ' + projectId);
-    this._route.navigate(['/ncRegister', projectId ]);
+    this._route.navigate(['Admin/ncRegister', projectId ]);
   }
 
   private showError(err: any) {

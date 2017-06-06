@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { QuestionBankComponent } from './_ADMIN_Views/_DATA_Forms/question-bank/question-bank.component';
 import { AuditeeFormComponent } from './_ADMIN_Views/auditee-form/auditee-form.component';
-import { AuditTimetableComponent } from './_ADMIN_Views/audit-timetable/audit-timetable.component';
 import { ProjectsComponent } from './_ADMIN_Views/projects/projects.component';
 import { NcRegisterFormComponent } from './_ADMIN_Views/nc-register-form/nc-register-form.component';
 import { UserNcRegisterComponent } from './_USER_Views/user-nc-register/user-nc-register.component';
@@ -19,7 +18,8 @@ import { LoginComponent } from './_Login_View/login/login.component';
 // tslint:disable-next-line:max-line-length
 import { CreateDeleteQuestionCategoryComponent } from './_ADMIN_VIEWS/_DATA_Forms/create-delete-question-category/create-delete-question-category.component';
 import { ProjectMasterComponent } from './_ADMIN_VIEWS/_DATA_Forms/project-master/project-master.component';
-import { appRoutes } from "app/_Router_Config/RouteConfig";
+import { appRoutes } from 'app/_Router_Config/RouteConfig';
+import { CreateAuditTimeTableComponent } from './_ADMIN_VIEWS/_DATA_Forms/create-audit-time-table/create-audit-time-table.component';
 
 
 @NgModule({
@@ -28,13 +28,13 @@ import { appRoutes } from "app/_Router_Config/RouteConfig";
     HeaderComponent,
     QuestionBankComponent,
     AuditeeFormComponent,
-    AuditTimetableComponent,
     ProjectsComponent,
     NcRegisterFormComponent,
     UserNcRegisterComponent,
     LoginComponent,
     CreateDeleteQuestionCategoryComponent,
-    ProjectMasterComponent
+    ProjectMasterComponent,
+    CreateAuditTimeTableComponent
   ],
   imports: [
     BrowserModule,
