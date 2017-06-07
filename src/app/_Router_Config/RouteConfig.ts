@@ -9,6 +9,7 @@ import { LoginComponent } from 'app/_Login_View/login/login.component';
 // tslint:disable-next-line:max-line-length
 import { CreateDeleteQuestionCategoryComponent } from 'app/_ADMIN_VIEWS/_DATA_Forms/create-delete-question-category/create-delete-question-category.component';
 import { ProjectMasterComponent } from 'app/_ADMIN_VIEWS/_DATA_Forms/project-master/project-master.component';
+import { QuestionProjectComponent } from 'app/_ADMIN_VIEWS/_DATA_Forms/question-project/question-project.component';
 
 export const appRoutes: Routes = [
     { path: '', redirectTo: 'Admin/add-delete-question-category', pathMatch: 'full' },
@@ -22,5 +23,6 @@ export const appRoutes: Routes = [
     { path: 'Admin/userNcRegister/:projectId', component: UserNcRegisterComponent },
     { path: 'Admin/add-delete-question-category', component: CreateDeleteQuestionCategoryComponent },
     { path: 'Admin/project-master', component: ProjectMasterComponent },
-    { path: 'Admin/create-audit-time-table', component: CreateAuditTimeTableComponent}
+    { path: 'Admin/create-audit-time-table', component: CreateAuditTimeTableComponent },
+    { path: 'Admin/project-question', component: QuestionProjectComponent }
 ]

@@ -27,8 +27,7 @@ export class CreateAuditTimeTableComponent implements OnInit {
         if (Boolean(data) === true) {
           auditTimeTableForm.resetForm();
           alert('Project Added to Time Table');
-        }
-        else {
+        }else {
           alert('Server Error Occured');
         }
       },

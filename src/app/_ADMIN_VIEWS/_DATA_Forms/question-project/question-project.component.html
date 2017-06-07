@@ -1,0 +1,81 @@
+<div>
+
+  <form class=" form-horizontal">
+    <fieldset>
+      <div class="form-group form-group-sm">
+        <label for="select" class="col-lg-2 control-label">Project Type</label>
+        <div class="col-lg-2">
+          <select class="form-control" (change)="onProjectTypeChange($event.target.value)">
+          <option value="0">Select Project Type</option>
+          <option *ngFor="let projectType of projectTypeList" [value]="projectType.projectType" >{{projectType.projectTypeDescription}}</option>
+        </select>
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm">
+        <label class="control-label col-sm-2" for="">Add Question</label>
+        <div class="text-left col-sm-2">
+          <button type="button" class="btn btn-primary btn-block btn-sm" (click)="onshowQuestionClick()">Question List</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+
+<hr>
+
+<div *ngIf="isQuestionBankVisible">
+<h4 class="text-center">Question Bank List</h4>
+<div class="well well-sm question-banktable">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Id</th>
+        <th>Description</th>
+        <th>Active Status</th>
+        <th>Category</th>
+        <th>Weight</th>
+        <th>Add to Project Type</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let question of availableQuestionBankList ; let i =index">
+        <td>{{i+1}}</td>
+        <td>{{question.questionId}}</td>
+        <td>{{question.questionDescription}}</td>
+        <td>{{question.activeStatus}}</td>
+        <td>{{question.questionCategory}}</td>
+        <td>{{question.weightage}}</td>
+        <td><button class="btn btn-sm btn-warning" (click)="addQuestionToProjectType(question.questionId)">Add</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<table class="table table-striped table-hover ">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Id</th>
+      <th>Description</th>
+      <th>Active Status</th>
+      <th>Category</th>
+      <th>Weight</th>
+      <th>Delete Question</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let question of projectQuestionList ; let i =index">
+      <td>{{i+1}}</td>
+      <td>{{question.questionId}}</td>
+      <td>{{question.questionDescription}}</td>
+      <td>{{question.activeStatus}}</td>
+      <td>{{question.questionCategory}}</td>
+      <td>{{question.weightage}}</td>
+      <th><button class="btn btn-sm btn-danger" (click)="deleteQuestion(question.questionId)">Delete</button></th>
+    </tr>
+  </tbody>
+</table>

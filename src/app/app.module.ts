@@ -20,6 +20,7 @@ import { CreateDeleteQuestionCategoryComponent } from './_ADMIN_VIEWS/_DATA_Form
 import { ProjectMasterComponent } from './_ADMIN_VIEWS/_DATA_Forms/project-master/project-master.component';
 import { appRoutes } from 'app/_Router_Config/RouteConfig';
 import { CreateAuditTimeTableComponent } from './_ADMIN_VIEWS/_DATA_Forms/create-audit-time-table/create-audit-time-table.component';
+import { QuestionProjectComponent } from './_ADMIN_VIEWS/_DATA_Forms/question-project/question-project.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { CreateAuditTimeTableComponent } from './_ADMIN_VIEWS/_DATA_Forms/create
     LoginComponent,
     CreateDeleteQuestionCategoryComponent,
     ProjectMasterComponent,
-    CreateAuditTimeTableComponent
+    CreateAuditTimeTableComponent,
+    QuestionProjectComponent
   ],
   imports: [
     BrowserModule,
