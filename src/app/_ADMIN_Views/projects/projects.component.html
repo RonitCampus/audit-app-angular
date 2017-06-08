@@ -16,6 +16,7 @@
                 <th>Conducted on</th>
                 <th>Perform Audit</th>
                 <th>Nc Register</th>
+                <th>Nc Related to Project</th>
               </tr>
             </thead>
             <tbody>
@@ -28,6 +29,7 @@
                 <td>{{project.conductedOn}}</td>
                 <td><button class="btn btn-performaudit btn-sm btn-info" (click)="onDoAuditClick(project.id)" >Audit</button></td>
                 <td><button class="btn btn-performaudit btn-sm btn-warning" (click)="onNcRegisterClick(project.id)" >Register</button></td>
+                <td><button class="btn btn-performaudit btn-sm btn-success" (click)="onShowAllNcs(project.id)" >Show all</button></td>
               </tr>
             </tbody>
           </table>

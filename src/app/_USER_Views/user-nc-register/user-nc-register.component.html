@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="auditInfo?.ncStatus===301">
   <div class="row">
     <div class="col-sm-6 col-sm-offset-3">
       <form class="form-horizontal well formborder" (ngSubmit)="formSubmit(userNcForm)" #userNcForm="ngForm">
@@ -7,9 +7,17 @@
           <legend>Non Compliant Form</legend>
 
           <div class="form-group form-group-sm" hidden>
+            <label for="textinput" class="control-label col-sm-3">Nc Id</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" [ngModel]="auditInfo?.ncId" placeholder="Nc Id" name="ncId" readonly>
+
+            </div>
+          </div>
+
+          <div class="form-group form-group-sm" hidden>
             <label for="textinput" class="control-label col-sm-3">Audit Id</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" [value]="auditInfo?.auditId" placeholder="Audit Id" name="auditId" readonly disabled ngModel>
+              <input type="text" class="form-control" [ngModel]="auditInfo?.auditId" placeholder="Audit Id" name="auditId" readonly>
 
             </div>
           </div>
@@ -17,7 +25,8 @@
           <div class="form-group form-group-sm">
             <label for="projectName" class="control-label col-sm-3">Project Name</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" [value]="auditInfo?.name" placeholder="Project Name" name="projectName" readonly disabled ngModel>
+              <input type="text" class="form-control" [ngModel]="auditInfo?.projectName" placeholder="Project Name" name="projectName"
+                readonly>
 
             </div>
           </div>
@@ -25,7 +34,7 @@
           <div class="form-group form-group-sm">
             <label for="raisedBy" class="control-label col-sm-3">Raised By</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" [value]="auditInfo?.auditor" placeholder="Raised By" name="raisedBy" readonly disabled ngModel>
+              <input type="text" class="form-control" [ngModel]="auditInfo?.raisedBy" placeholder="Raised By" name="raisedBy" readonly>
 
             </div>
           </div>
@@ -33,7 +42,8 @@
           <div class="form-group form-group-sm">
             <label for="textinput" class="control-label col-sm-3">Expected close date</label>
             <div class="col-sm-9">
-              <input type="date" class="form-control" [value]="auditInfo?.expectedCloseDt" placeholder="dd-mm-yyy" name="expectedCloseDt" readonly disabled ngModel>
+              <input type="date" class="form-control" [ngModel]="auditInfo?.expectedCloseDate" placeholder="dd-mm-yyy" name="expectedCloseDate"
+                readonly>
 
             </div>
           </div>
@@ -41,7 +51,7 @@
           <div class="form-group form-group-sm">
             <label for="assignedto" class="control-label col-sm-3">Assigned to</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" [value]="auditInfo?.auditee" placeholder="Assigned to" name="assignedTo" required disabled ngModel>
+              <input type="text" class="form-control" [ngModel]="auditInfo?.assignedTo" placeholder="Assigned to" name="assignedTo" readonly>
 
             </div>
           </div>
@@ -49,30 +59,29 @@
           <div class="form-group form-group-sm" hidden>
             <label for="textinput" class="control-label col-sm-3">Status</label>
             <div class="col-sm-9">
-              <input type="text" class="form-control" [value]="auditInfo?.status" placeholder="" name="auditCompleteStatus" readonly disabled ngModel>
+              <input type="text" class="form-control" [ngModel]="auditInfo?.ncStatus" placeholder="" name="ncStatus" readonly>
 
             </div>
           </div>
 
           <div class="form-group form-group-sm">
-            <label for="textinput" class="control-label col-sm-3">Remark</label>
+            <label for="textinput" class="control-label col-sm-3">Non Compliant Remark</label>
             <div class="col-sm-9">
-               <textarea class="form-control" [value]="auditInfo?.remark" name="textarea" rows="3" name="remark" readonly disabled ngModel></textarea>
+              <textarea class="form-control" [ngModel]="auditInfo?.ncDescription" name="textarea" rows="3" name="ncDescription" readonly></textarea>
+            </div>
+          </div>
+
+          <div class="form-group form-group-sm">
+            <label for="resDate" class="control-label col-sm-3">Resolution Date</label>
+            <div class="col-sm-9">
+              <input class="form-control" placeholder="dd-mm-yyyy" name="resolutionDate" [value]="todaysDate" readonly>
             </div>
           </div>
 
           <div class="form-group">
             <label class="control-label col-sm-3" for="textarea">Resolution</label>
             <div class="col-sm-9">
-              <textarea class="form-control" name="textarea" rows="3" name="resolution" required ngModel></textarea>
-            </div>
-          </div>
-
-
-          <div class="form-group form-group-sm">
-            <label for="resDate" class="control-label col-sm-3">Resolution Date</label>
-            <div class="col-sm-9">
-              <input type="date" class="form-control" placeholder="dd-mm-yyyy" name="resolutionDt" required ngModel>
+              <textarea class="form-control" name="textarea" rows="3" name="resolutionFromAuditee" required ngModel></textarea>
             </div>
           </div>
 
@@ -89,3 +98,20 @@
     </div>
   </div>
 </div>
+
+<div class="container" *ngIf="auditInfo?.ncStatus===302">
+  <div class="well text-center">
+    <h2> You have Submitted the Non Compliant Form for
+         Project " {{auditInfo?.projectName}} " <br> 
+      and its been Pending with the Auditor " <em>{{auditInfo?.raisedBy}}</em> " for Closure.</h2>
+  </div>
+</div>
+
+
+<div class="container" *ngIf="auditInfo?.ncStatus===303">
+  <div class="well text-center">
+    <h2> Non Compliant Form for Project " {{auditInfo?.projectName}} "<br> 
+      has been closed by the Auditor " <em> {{auditInfo?.raisedBy}} </em> ".</h2>
+  </div>
+</div>
+

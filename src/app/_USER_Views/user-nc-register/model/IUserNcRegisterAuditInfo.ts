@@ -1,9 +1,10 @@
 export interface IUserNcRegisterAuditInfo {
+  ncId: number;
   auditId: number;
-  name: string;
-  auditor: string;
-  auditee: string;
-  remark: string;
-  status: string;
-  expectedCloseDt:string;
+  projectName: string;
+  raisedBy: string;
+  expectedCloseDate: Date;
+  assignedTo: string;
+  ncDescription: string;
+  ncStatus: number;
 }

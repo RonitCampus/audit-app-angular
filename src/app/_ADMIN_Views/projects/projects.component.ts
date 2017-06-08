@@ -25,7 +25,7 @@ export class ProjectsComponent implements OnInit {
   getProjects(): void {
     this._projectService.getProject()
       .subscribe(
-      (data) => { this.projectList = data },
+      (data) => { this.projectList = data; console.log(data) },
       (err) => { this.showError(err); }
       );
   }
@@ -34,9 +34,13 @@ export class ProjectsComponent implements OnInit {
     this._route.navigate(['Admin/auditeeForm', projectId]);
   }
 
+  onShowAllNcs(projectId: number): void {
+    this._route.navigate(['Admin/showAll-ncs/', projectId]);
+  }
+
   onNcRegisterClick(projectId: number): void {
     console.log('onNcRegister Click : ' + projectId);
-    this._route.navigate(['Admin/ncRegister', projectId ]);
+    this._route.navigate(['Admin/ncRegister', projectId]);
   }
 
   private showError(err: any) {

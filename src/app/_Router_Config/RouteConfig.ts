@@ -1,3 +1,4 @@
+import { AllNcsForProjectComponent } from './../_ADMIN_VIEWS/all-ncs-for-project/all-ncs-for-project.component';
 import { CreateAuditTimeTableComponent } from './../_ADMIN_VIEWS/_DATA_Forms/create-audit-time-table/create-audit-time-table.component';
 import { Routes } from '@angular/router';
 import { QuestionBankComponent } from 'app/_ADMIN_Views/_DATA_Forms/question-bank/question-bank.component';
@@ -12,7 +13,7 @@ import { ProjectMasterComponent } from 'app/_ADMIN_VIEWS/_DATA_Forms/project-mas
 import { QuestionProjectComponent } from 'app/_ADMIN_VIEWS/_DATA_Forms/question-project/question-project.component';
 
 export const appRoutes: Routes = [
-    { path: '', redirectTo: 'Admin/add-delete-question-category', pathMatch: 'full' },
+    { path: '', redirectTo: 'Admin/projects', pathMatch: 'full' },
 
     { path: 'login', component: LoginComponent },
 
@@ -20,9 +21,10 @@ export const appRoutes: Routes = [
     { path: 'Admin/auditeeForm/:projId', component: AuditeeFormComponent },
     { path: 'Admin/projects', component: ProjectsComponent },
     { path: 'Admin/ncRegister/:projId', component: NcRegisterFormComponent },
-    { path: 'Admin/userNcRegister/:projectId', component: UserNcRegisterComponent },
+    { path: 'userNcRegister/:ncId', component: UserNcRegisterComponent },
     { path: 'Admin/add-delete-question-category', component: CreateDeleteQuestionCategoryComponent },
     { path: 'Admin/project-master', component: ProjectMasterComponent },
     { path: 'Admin/create-audit-time-table', component: CreateAuditTimeTableComponent },
-    { path: 'Admin/project-question', component: QuestionProjectComponent }
+    { path: 'Admin/project-question', component: QuestionProjectComponent },
+    { path: 'Admin/showAll-ncs/:projId', component: AllNcsForProjectComponent }
 ]

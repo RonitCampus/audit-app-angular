@@ -1,9 +1,10 @@
+import { observable } from 'rxjs/symbol/observable';
 import { IUserNcRegisterAuditInfo } from './../model/IUserNcRegisterAuditInfo';
 
 import { Observable } from 'rxjs/Rx';
-import { Http } from '@angular/http';
+import { Http, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
-import {serverUrl} from '../../../HttpConfig/httpConfig';
+import { serverUrl } from '../../../HttpConfig/httpConfig';
 
 
 @Injectable()
@@ -17,8 +18,18 @@ export class UserNcRegisterService {
       .map(res => res.json());
   }
 
+  private _postData(url: string, data: object): Observable<any> {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const options = new RequestOptions({ headers: headers });
+    return this._http.post(url, JSON.stringify(data), options);
+  }
+
   public getProjectInfo(projectId: number): Observable<IUserNcRegisterAuditInfo> {
     return this._fetchData(serverUrl + '/UserServices/NcRegister/AuditInfo/' + projectId);
+  }
+
+  public updateNcRegister(data: Object): Observable<boolean> {
+    return this._postData( serverUrl + '/UserServices/NcRegister/Update', data);
   }
 
 }

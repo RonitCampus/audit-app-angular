@@ -11,33 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserNcRegisterComponent implements OnInit {
 
-  auditInfo :IUserNcRegisterAuditInfo;
-  projectId :number;
+  auditInfo: IUserNcRegisterAuditInfo;
+  ncId: number;
+  todaysDate: String;
 
-  constructor(private _userNcRegisterService :UserNcRegisterService, private _activatedRoute : ActivatedRoute) {
-   }
+  constructor(private _userNcRegisterService: UserNcRegisterService, private _activatedRoute: ActivatedRoute) {
+    this.todaysDate = this.getTodaysDate();
+  }
 
   ngOnInit() {
-    this.projectId = this._activatedRoute.snapshot.params['projectId'];
-    this.getAuditInfo(this.projectId);
+    this.ncId = this._activatedRoute.snapshot.params['ncId'];
+    this.getAuditInfo(this.ncId);
   }
 
-formSubmit( userNcForm : any ): void{
-console.log(userNcForm.value);
-}
-
-  getAuditInfo(projectId:number){
-    this._userNcRegisterService.getProjectInfo(projectId)
-    .subscribe(
-      (data)=>{this.auditInfo = data; console.log(this.auditInfo)},
-      (err)=>{this.showError(err);},
-      ()=>{}
-    );
+  formSubmit(userNcForm: any): void {
+    this._userNcRegisterService.updateNcRegister(userNcForm.value)
+      .subscribe(
+      (data) => {
+        if (Boolean(data) === true) {
+          this.getAuditInfo(this.ncId);
+        }
+      },
+      (err) => alert(err)
+      );
   }
 
-  private showError(err :String): void{
+  getAuditInfo(ncId: number) {
+    this._userNcRegisterService.getProjectInfo(ncId)
+      .subscribe(
+      (data) => { this.auditInfo = data; /* console.log(this.auditInfo) */},
+      (err) => { this.showError(err); }
+      );
+  }
+
+  private showError(err: String): void {
     console.log(err);
   }
 
-
+  private getTodaysDate(): String {
+    const date: Date = new Date();
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate()).toString();
+  }
 }
