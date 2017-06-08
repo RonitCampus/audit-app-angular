@@ -2,6 +2,7 @@ import { IProjectInfo } from './../model/IProjectInfo';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
+import {serverUrl} from "../../../HttpConfig/httpConfig";
 
 @Injectable()
 export class NcregisterService {
@@ -15,7 +16,7 @@ export class NcregisterService {
 
 
   public getProjectInfo(projectId: number): Observable<IProjectInfo> {
-    return this._fetchData('http://10.10.11.50:8090/audit-app/admin/ncform/getProjectInfo/' + projectId);
+    return this._fetchData(serverUrl + '/audit-app/admin/ncform/getProjectInfo/' + projectId);
   }
 
 }

@@ -3,6 +3,7 @@ import { IUserNcRegisterAuditInfo } from './../model/IUserNcRegisterAuditInfo';
 import { Observable } from 'rxjs/Rx';
 import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import {serverUrl} from '../../../HttpConfig/httpConfig';
 
 
 @Injectable()
@@ -17,7 +18,7 @@ export class UserNcRegisterService {
   }
 
   public getProjectInfo(projectId: number): Observable<IUserNcRegisterAuditInfo> {
-    return this._fetchData('http://10.10.11.50:8090/UserServices/NcRegister/AuditInfo/' + projectId);
+    return this._fetchData(serverUrl + '/UserServices/NcRegister/AuditInfo/' + projectId);
   }
 
 }

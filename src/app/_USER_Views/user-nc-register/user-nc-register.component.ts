@@ -22,6 +22,10 @@ export class UserNcRegisterComponent implements OnInit {
     this.getAuditInfo(this.projectId);
   }
 
+formSubmit( userNcForm : any ): void{
+console.log(userNcForm.value);
+}
+
   getAuditInfo(projectId:number){
     this._userNcRegisterService.getProjectInfo(projectId)
     .subscribe(

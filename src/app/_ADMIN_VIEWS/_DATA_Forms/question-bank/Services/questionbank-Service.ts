@@ -5,6 +5,7 @@ import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 import 'rxjs/Operator';
+import {serverUrl} from "../../../../HttpConfig/httpConfig";
 
 @Injectable()
 export class QuestionbankService {
@@ -26,11 +27,11 @@ export class QuestionbankService {
 
 
   public getQuestionCategories(): Observable<ICategory[]> {
-    return this._fetchData('http://10.10.11.50:8090/audit-app/admin/question-bank/get-categories');
+    return this._fetchData( serverUrl + '/audit-app/admin/question-bank/get-categories');
   }
 
   public addQuestion(data: object): Observable<Response> {
-    return this._postData('http://10.10.11.50:8090/audit-app/admin/question-bank/add-question', data);
+    return this._postData( serverUrl + '/audit-app/admin/question-bank/add-question', data);
   }
 
 

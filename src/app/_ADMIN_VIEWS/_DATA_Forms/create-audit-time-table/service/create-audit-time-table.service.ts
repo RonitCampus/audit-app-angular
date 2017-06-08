@@ -2,6 +2,8 @@ import { IProjectInfo } from '../model/IProjectInfo';
 import { Observable } from 'rxjs/Observable';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
+import {serverUrl} from '../../../../HttpConfig/httpConfig';
+
 
 @Injectable()
 export class CreateAuditTimeTableService {
@@ -21,11 +23,11 @@ export class CreateAuditTimeTableService {
   }
 
   public getAllProjects(): Observable<IProjectInfo[]> {
-      return this._fetchData('http://10.10.11.50:8090/Admin_Services/Data_forms/CreateAuditTimeTable/getProjects');
+      return this._fetchData( serverUrl + '/Admin_Services/Data_forms/CreateAuditTimeTable/getProjects');
   }
 
   public addProjectToTimeTable(data: Object): Observable<boolean> {
-    return this._postData('http://10.10.11.50:8090/Admin_Services/Data_forms/CreateAuditTimeTable/addProject', data);
+    return this._postData( serverUrl + '/Admin_Services/Data_forms/CreateAuditTimeTable/addProject', data);
   }
 
 }

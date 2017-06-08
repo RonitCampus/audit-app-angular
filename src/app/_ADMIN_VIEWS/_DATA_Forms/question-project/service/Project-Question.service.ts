@@ -5,7 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { IQuestionProject } from '../model/IQuestionProject';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { observable } from 'rxjs/symbol/observable';
+import {serverUrl} from '../../../../HttpConfig/httpConfig';
 
 @Injectable()
 export class QuestionProjectService {
@@ -24,23 +24,23 @@ export class QuestionProjectService {
     }
 
     public getAllProjectType(): Observable<IProjectType[]> {
-        return this._fetchData('http://10.10.11.50:8090/Admin_Services/Data_forms/ProjectMaster/ProjectTypes');
+        return this._fetchData( serverUrl + '/Admin_Services/Data_forms/ProjectMaster/ProjectTypes');
     }
 
     public getAllQuestionsInProjectType(projectType: number): Observable<IQuestionProject[]> {
-        return this._fetchData('http://10.10.11.50:8090/Admin_Services/Data_forms/QuestionProject/allQuestions/' + projectType);
+        return this._fetchData( serverUrl + '/Admin_Services/Data_forms/QuestionProject/allQuestions/' + projectType);
     }
 
     public getAllQuestionsNotInProject(projectType: number): Observable<IQuestionProject[]> {
-        return this._fetchData('http://10.10.11.50:8090/Admin_Services/Data_forms/QuestionProject/allAvailableQuestions/' + projectType);
+        return this._fetchData( serverUrl + '/Admin_Services/Data_forms/QuestionProject/allAvailableQuestions/' + projectType);
     }
 
     public addQuestionToProjectType(data: Object): Observable<boolean> {
-        return this._postData('http://10.10.11.50:8090/Admin_Services/Data_forms/QuestionProject/addQuestionToProjectType', data);
+        return this._postData( serverUrl + '/Admin_Services/Data_forms/QuestionProject/addQuestionToProjectType', data);
     }
 
     public deleteQuestion(data: Object) {
-        return this._postData('http://10.10.11.50:8090/Admin_Services/Data_forms/QuestionProject/deleteQuestionFromProjectType', data);
+        return this._postData( serverUrl + '/Admin_Services/Data_forms/QuestionProject/deleteQuestionFromProjectType', data);
     }
 
 }

@@ -6,6 +6,7 @@ import {Headers, Http, RequestOptions} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/Rx';
 import 'rxjs/Operator';
+import {serverUrl} from "../../../HttpConfig/httpConfig";
 
 @Injectable()
 export class AuditeeFormService {
@@ -25,20 +26,20 @@ export class AuditeeFormService {
   }
 
   public getStatusCodes(): Observable<IComplianceCode[]> {
-    return this._fetchData('http://10.10.11.50:8090/audit-app/admin/auditform/complianceStatusCodes');
+    return this._fetchData( serverUrl  + '/audit-app/admin/auditform/complianceStatusCodes');
   }
 
   public getProjectList(): Observable<IProject[]> {
-    return this._fetchData('http://10.10.11.50:8090/audit-app/admin/auditform/projectList')
+    return this._fetchData(serverUrl + '/audit-app/admin/auditform/projectList')
   }
 
   public getQuestion(projectId: number): Observable<any> {
-    return this._fetchData('http://10.10.11.50:8090/audit-app/admin/auditform/allQuestions/' + projectId);
+    return this._fetchData(serverUrl + '/audit-app/admin/auditform/allQuestions/' + projectId);
   }
 
 
   public saveQuestions(data: IQuestion[]): Observable<any> {
-    return this._postData('http://10.10.11.50:8090/audit-app/admin/auditform/submit', data);
+    return this._postData(serverUrl + '/audit-app/admin/auditform/submit', data);
   }
 
 }

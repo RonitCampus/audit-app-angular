@@ -4,6 +4,8 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { IQuestionCategory } from '../model/IQuestionCateory';
+import {sendRequest} from "selenium-webdriver/http";
+import {serverUrl} from "../../../../HttpConfig/httpConfig";
 
 @Injectable()
 export class CreateDelQuestionService {
@@ -26,14 +28,14 @@ export class CreateDelQuestionService {
   }
 
   public getAllQuestionCategory(): Observable<IQuestionCategory[]> {
-    return this._fetchData('http://10.10.11.50:8090/Admin_Services/Data_forms/QuestionCategory/GetAll');
+    return this._fetchData( serverUrl + '/Admin_Services/Data_forms/QuestionCategory/GetAll');
   }
 
   public addQuestionCategory(categoryDesc: object): Observable<boolean> {
-    return this._postData('http://localhost:8090/Admin_Services/Data_forms/QuestionCategory/Add', categoryDesc);
+    return this._postData( serverUrl + '/Admin_Services/Data_forms/QuestionCategory/Add', categoryDesc);
   }
 
   public deleteCategory(id: number): Observable<boolean> {
-    return this._delete('http://localhost:8090/Admin_Services/Data_forms/QuestionCategory/Delete', id);
+    return this._delete( serverUrl + '/Admin_Services/Data_forms/QuestionCategory/Delete', id);
   }
 }

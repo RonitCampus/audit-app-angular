@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, RequestOptions, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { IProjectType } from '../model/IProjectType';
-
-
+import { serverUrl } from '../../../../HttpConfig/httpConfig';
 
 @Injectable()
 export class ProjectMasterService {
@@ -24,11 +23,11 @@ export class ProjectMasterService {
   }
 
   public getAllProjectType(): Observable<IProjectType[]> {
-    return this._fetchData('http://localhost:8090/Admin_Services/Data_forms/ProjectMaster/ProjectTypes');
+    return this._fetchData( serverUrl + '/Admin_Services/Data_forms/ProjectMaster/ProjectTypes');
   }
 
   public addnewProject(data: Object): Observable<Boolean> {
-    return this._postData('http://localhost:8090/Admin_Services/Data_forms/ProjectMaster/addNewProject', data);
+    return this._postData( serverUrl + '/Admin_Services/Data_forms/ProjectMaster/addNewProject', data);
   }
 
 }

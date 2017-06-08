@@ -2,6 +2,7 @@ import { IProject } from '../../auditee-form/model/IProject';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
+import {serverUrl} from '../../../HttpConfig/httpConfig';
 
 @Injectable()
 export class ProjectService {
@@ -15,7 +16,7 @@ export class ProjectService {
 
 
   public getProject(): Observable<IProject[]> {
-    return this._fetchData('http://10.10.11.50:8090/audit-app/admin/auditform/projectList');
+    return this._fetchData( serverUrl + '/audit-app/admin/auditform/projectList');
   }
 
 }
