@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-lg-12 well">
-      <div class="form-horizontal">
+      <div>
         <fieldset>
           <legend>Project List</legend>
 
@@ -26,8 +26,8 @@
                 <td>{{nc.raisedBy}}</td>
                 <td>{{nc.assignedTo}}</td>
                 <td>{{nc.expectedCloseDate}}</td>
-                <td>{{nc.status}}</td>
-                <td><button class="btn btn-performaudit btn-sm btn-info">Close</button></td>
+                <td>{{ getStatus( nc.status )}}</td>
+                <td><button class="btn btn-performaudit btn-sm btn-info" (click)="onReviewNcClick(nc.ncId)">Close</button></td>
               </tr>
             </tbody>
           </table>

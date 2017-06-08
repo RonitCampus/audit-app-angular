@@ -1,0 +1,115 @@
+
+<div *ngIf="NcInfo?.status===302">
+  <form class="form-horizontal well col-sm-6 col-sm-offset-3" #reviewNcForm="ngForm" (ngSubmit)="onFormSubmit(reviewNcForm)">
+    <fieldset>
+
+      <legend>Nc Review Form</legend>
+
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+
+      <div class="form-group form-group-sm">
+        <label for="" class="control-label col-sm-2">Project Name</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="" placeholder="" name="projectName" readonly="" [ngModel]="NcInfo?.projectName" >
+
+        </div>
+      </div>
+
+      <div class="form-group form-group-sm">
+        <label for="textinput" class="control-label col-sm-2">Nc Id</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="" placeholder="" name="ncId" readonly="" [ngModel]="NcInfo?.ncId">
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="textinput" class="control-label col-sm-2">Nc Raised Date</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="" name="ncDate" placeholder="" readonly="" [ngModel]="NcInfo?.ncDate">
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="textinput" class="control-label col-sm-2">Description</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="description" placeholder="" readonly="" [ngModel]="NcInfo?.description">
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="textinput" class="control-label col-sm-2">Assigned To</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="assignedTo" placeholder="" readonly="" [ngModel]="NcInfo?.assignedTo">
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="textinput" class="control-label col-sm-2">Raised By</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="raisedBy" placeholder="" readonly="" [ngModel]="NcInfo?.raisedBy">
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="textinput" class="control-label col-sm-2">Resolution</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="resolution" placeholder="" readonly="" [ngModel]="NcInfo?.resolution">
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="textinput" class="control-label col-sm-2">Close By</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="closedBy" ngModel required>
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="" class="control-label col-sm-2">Close Date</label>
+        <div class="col-sm-10">
+          <input type="date" class="form-control" name="closeDate" placeholder="dd-mm-yyyy" required ngModel>
+
+        </div>
+      </div>
+      <!-- Text input http://getbootstrap.com/css/#forms -->
+      <div class="form-group form-group-sm">
+        <label for="" class="control-label col-sm-2">Close Remark</label>
+        <div class="col-sm-10">
+          <input type="text" class="form-control" name="closeRemark" placeholder="" required ngModel>
+
+        </div>
+      </div>
+      <!-- Button http://getbootstrap.com/css/#buttons -->
+      <div class="form-group">
+        <label class="control-label col-sm-2" for=""></label>
+        <div class="text-right col-sm-10">
+          <button type="submit" [disabled]="! reviewNcForm.form.valid" name="" class="btn btn-primary btn-sm" aria-label="">Update</button>
+
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+</div>
+
+<div *ngIf="NcInfo?.status===301">
+  <div class="well text-center">
+    <h2>Pending with Auditee</h2>
+  </div>
+</div>
+
+
+<div *ngIf="NcInfo?.status===303">
+  <div class="well text-center">
+    <h2> Nc Closed</h2>
+  </div>
+</div>
+
+

@@ -22,6 +22,7 @@ import { appRoutes } from 'app/_Router_Config/RouteConfig';
 import { CreateAuditTimeTableComponent } from './_ADMIN_VIEWS/_DATA_Forms/create-audit-time-table/create-audit-time-table.component';
 import { QuestionProjectComponent } from './_ADMIN_VIEWS/_DATA_Forms/question-project/question-project.component';
 import { AllNcsForProjectComponent } from './_ADMIN_VIEWS/all-ncs-for-project/all-ncs-for-project.component';
+import { ReviewNcComponent } from './_ADMIN_Views/review-nc/review-nc.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { AllNcsForProjectComponent } from './_ADMIN_VIEWS/all-ncs-for-project/al
     ProjectMasterComponent,
     CreateAuditTimeTableComponent,
     QuestionProjectComponent,
-    AllNcsForProjectComponent
+    AllNcsForProjectComponent,
+    ReviewNcComponent
   ],
   imports: [
     BrowserModule,
