@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
-import {ReviewNcService} from './service/reviewNcService'
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ReviewNcService } from './service/reviewNcService'
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-review-nc',
@@ -13,7 +14,7 @@ export class ReviewNcComponent implements OnInit {
   public NcInfo: Object;
   ncId: number;
 
-  constructor(private _activatedRoute: ActivatedRoute, private _reviewNcService: ReviewNcService) {
+  constructor(private _activatedRoute: ActivatedRoute, private location: Location, private _reviewNcService: ReviewNcService) {
   }
 
   ngOnInit() {
@@ -26,13 +27,13 @@ export class ReviewNcComponent implements OnInit {
   private getNcInfo() {
     this._reviewNcService.getNcInfo(this.ncId)
       .subscribe(
-        (data) => {
-          this.NcInfo = data;
-          console.log(data);
-        },
-        (err) => {
-          alert(err);
-        }
+      (data) => {
+        this.NcInfo = data;
+        console.log(data);
+      },
+      (err) => {
+        alert(err);
+      }
       );
   }
 
@@ -40,13 +41,12 @@ export class ReviewNcComponent implements OnInit {
     console.log(reviewNcForm.value);
     this._reviewNcService.updateNc(reviewNcForm.value)
       .subscribe(
-        (data) => {
-          if (Boolean(data) === true) {
-            this.getNcInfo();
-          }
-        },
-        (err) => alert(err)
+      (data) => {
+        if (Boolean(data) === true) {
+          this.location.back();
+        }
+      },
+      (err) => alert(err)
       );
   }
-
 }
