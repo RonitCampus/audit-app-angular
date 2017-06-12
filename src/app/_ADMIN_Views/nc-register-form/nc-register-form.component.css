@@ -1,4 +1,8 @@
-.hide 
+.hide
 {
     display: none !important;
+}
+
+textarea{
+  resize: none;
 }
